@@ -30,13 +30,12 @@ public void setup()
     }
   }
 }
+
 public boolean palindrome(String word)
 {
   //your code here
   String nString = new String();
-  for (int i = word.length() - 1; i > - 1; i--) {
-    nString += word.substring(i, i + 1);
-  }
+  nString = convert(reverse(word));
   if (nString.equals(word)) {
     return true;
   } else {
@@ -53,7 +52,13 @@ public String reverse(String str)
     return sNew;
 }
 
-
+public String convert(String str) {
+  String sNew = new String();
+  for(int i = 0; i < str.length(); i++)
+    if(Character.isLetter(str.charAt(i)) == true)
+      sNew += str.charAt(i);
+  return sNew;
+}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PalindromeChecker" };
     if (passedArgs != null) {
